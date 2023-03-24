@@ -1,0 +1,22 @@
+{
+    "options": {
+      "paths": {
+        "root": "",
+        "styles": "",
+        "mbtiles": ""
+      },
+      "maxScaleFactor": 6,
+      "maxSize": 2024
+    },
+    "styles": {
+      "default": {
+        "style": "style.json"
+  
+      }
+    },
+    "data": {
+      "v3": {
+        "mbtiles": "map.mbtiles"
+      }
+    }
+}

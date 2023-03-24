@@ -1,0 +1,31 @@
+version: latest
+services:
+  maputnik:
+    build:
+      context: ./maps/
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8000"
+    restart: "no"
+    volumes:
+      - python-docker:/data
+  tileserver:
+      image: maptiler/tileserver-gl
+      volumes:
+        - python-docker:/data
+      ports:
+        - "8080:8080"
+      command:
+        - "map.mbtiles"
+  flask:
+      build: 
+        context: ./dataConverter/
+        dockerfile: Dockerfile
+      ports:
+        - "5001:5000"
+      volumes:
+        - python-docker:/data
+        - /var/run/docker.sock:/tmp/docker.sock
+
+volumes:
+  python-docker:

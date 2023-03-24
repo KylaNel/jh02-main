@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block title %} Flask {% endblock %}
+
+{% block bar %}
+    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 8%" aria-valuenow="15" aria-valuemin="0"
+        aria-valuemax="100"></div>
+{% endblock %}
+
+{% block content %}
+<h1>Data Converter</h1>
+<form method="post" action="/" enctype="multipart/form-data">
+    <input type="file" name="file" class="btn">
+    Select country:
+    <select name="comp_select" class="Input" method="GET" action="/">
+        {% for o in osmDictionary %}
+        <option value="{{ o }}">{{ o }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" name="osm-pbf" value="pbf" class="btn btn-outline-dark">
+    <input type="submit" name="mbtiles-convert" value="mbtiles" class="btn btn-outline-dark">
+</form>
+</br>
+<img class="mx-auto d-block" src="{{url_for('static', filename='images/logo.jpg')}}"" alt=" logo" width=95% height=100%>
+
+
+{% endblock %}
