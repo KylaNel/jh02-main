@@ -1,0 +1,33 @@
+image: docker:latest
+# python was removed in later version of docker
+
+services:
+  - docker:dind
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - docker-compose build
+  artifacts:
+    paths:
+      - ./
+    exclude:
+      - .git/**/*
+  
+
+deploy:
+  stage: deploy
+  script:
+    - docker info
+    - apk update
+    - apk upgrade
+    - apk add python3
+    - apk add --update py3-pip
+    - pip install docker-compose
+    - pip install pytest
+    - docker-compose -f docker-compose.yml up -d
+    - pytest

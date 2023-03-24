@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title_block %} Extract {% endblock %}
+
+{% block bar %}
+    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 8%" aria-valuenow="15" aria-valuemin="0"
+        aria-valuemax="100"></div>
+{% endblock %}
+
+{% block content %}
+{% set bbox="{{bbox}}" %}
+<div class="row">
+  <div class="col-md">
+    <h2>
+      New Query
+    </h2>
+    <form method="post">
+      <div class="form-group">
+        <label for="query">Type your query here (internet connection required):</label>
+        <textarea class="form-control" rows="10" name="query">[bbox:{{bbox}}];</textarea>
+        <button type="submit" class="btn btn-outline-dark"">Submit query</button>
+      </div>
+    </form>
+    <h2>
+      Filter existing data
+    </h2>
+    <div class="form-group">
+      <label for="filter">Filter here: </label>
+      <textarea class="form-control" rows="10" name="filter"></textarea>
+      <button type="submit" class="btn btn-outline-dark">Filter</button>
+    </div>
+  </div>
+  <div class="col-md p-3">
+    <h6>Maybe put selector GUI here?</h6>
+    <img src="{{ url_for('static', filename='images/map.jpg') }}" alt="Temporary map image. Maybe put selector GUI here?"/>
+  </div>
+</div>
+<a href="style"><button class="btn btn-dark" style="position: fixed; bottom: 30px; right: 30px; width: 200px">
+    <h3>Next</h3>
+  </button></a>
+
+{% endblock %}

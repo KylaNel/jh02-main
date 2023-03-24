@@ -1,0 +1,39 @@
+{
+    "version": 8,
+    "name": "Empty Style",
+    "metadata": {
+        "maputnik:renderer": "mbgljs"
+    },
+    "sources": {
+        "map":{
+            "type":"vector",
+            "url":"mbtiles://{v3}"
+        },
+        "natural_earth_shaded_relief":{
+            "maxzoom":6,
+            "tileSize":256,
+            "tiles":[
+            "https://klokantech.github.io/naturalearthtiles/tiles/natural_earth_2_shaded_relief.raster/{z}/{x}/{y}.png"
+            ],
+            "type":"raster"
+        }
+    },
+    "sprite": "",
+    "glyphs": "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+    "layers": [
+
+        {
+            "id":"natural_earth",
+            "type":"raster",
+            "source":"natural_earth_shaded_relief",
+            "maxzoom":6,
+            "paint":{
+                "raster-opacity":{
+                "base":1.5,
+                "stops":[[0,0.6],[6,0.1]]
+                }
+            }
+        }
+    ],
+    "id": "as1dgo3ad"
+}

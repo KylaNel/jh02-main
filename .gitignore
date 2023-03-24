@@ -1,0 +1,7 @@
+# ignore map files (except osm so that we still have query.osm)
+*.osm.pbf
+*.mbtiles
+
+# these are recommended for Flask
+instance/
+.webassets-cach
